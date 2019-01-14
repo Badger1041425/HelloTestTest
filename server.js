@@ -10,24 +10,14 @@ const server = Hapi.server({
 
 server.route({
     method:'GET',
-    path: '/user/{user}',
+    path: '/user',
     handler: function(request,h) {
 
-        var x = request.params.user.split("&");
+        var x = request.query;
 
-        var nameInput = x[0].replace("name=","");
-        var ageInput = x[1].replace("age=","");
-        var emailInput = x[2].replace("email=","");
-
-        var data = {
-            name: nameInput,
-            age: ageInput,
-            email: emailInput
-        }
-
-        return data;
+        return x;
     }
-});
+})
 
 // Start the server
 const start = async function () {
