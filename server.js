@@ -8,6 +8,8 @@ const server = Hapi.server({
     port: 8000
 });
 
+// Add the route
+
 server.route({
     method:'GET',
     path: '/user',
